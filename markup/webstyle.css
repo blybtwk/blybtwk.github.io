@@ -1,0 +1,11 @@
+@font-face{
+	font-family:'donknow yet-serif' ;
+	src: url('donknow yet-serif.otf')format('opentype');
+	font-weight: 100;
+}
+body{
+	/* this is the outermost element on your page*/
+	background: yellow;
+	font-family: donknow yet-serif;
+	font-size: 100px;
+}
