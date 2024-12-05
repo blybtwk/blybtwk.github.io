@@ -1,22 +1,42 @@
 @font-face {
   font-family: 'donknow yet-serif';
-  src: url('markup/fonts/donknow yet-serif.otf') format('opentype');
-  font-weight: 100;
+  src: url('./fonts/donknow%20yet-serif.otf') format('opentype');
 }
 
 body {
-  
   font-family: 'donknow yet-serif';
-  font-size: 100px;
-  margin: 0; 
-  overflow: hidden; /* 避免画布溢出滚动条 */
+  margin: 0;
+  overflow: auto;
+  scroll-snap-type: y mandatory; /* For smooth scrolling */
+}
+
+section {
+  height: 100vh; /* Make each section take full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#section-1 {
+  background-color: #bada55; /* A color for your first section (light gray) */
+}
+
+.black-section {
+  background-color: black; /* The black page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 canvas {
-  display: block; /* 取消画布周围的默认间距 */
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
-  background: transparent; /* 保证画布背景透明 */
+}
+
+p {
+  font-size: 24px;
+  color: #333;
 }

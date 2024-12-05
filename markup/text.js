@@ -1,5 +1,6 @@
 let words = []; // Array to store word positions and strings
 let boxSize = 150; // Size of the interactive box
+let smallBoxSize = 10; // Size of the small boxes
 let font; // Variable to hold the custom font
 
 function preload() {
@@ -9,11 +10,10 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  
+
   // Set the custom font
-  textFont('donknow yet-serif'); 
-  
-  textSize(32);
+  textFont(font);
+  textSize(200);
   textAlign(CENTER, CENTER);
 
   // Create random words and their positions
@@ -25,7 +25,7 @@ function setup() {
 }
 
 function draw() {
-  background(186,186,186);
+  background('#6600FF');
 
   // Draw all words
   for (let word of words) {
@@ -36,22 +36,45 @@ function draw() {
       mouseY - boxSize / 2 < word.y + textSize() / 2 &&
       mouseY + boxSize / 2 > word.y - textSize() / 2
     ) {
-      // Draw wireframe
+      // Change the appearance of the text when inside the box
       noFill();
-      stroke(0);
-      strokeWeight(1);
+      stroke('#C5C5C5');
+      strokeWeight(1); // Change the stroke weight for emphasis
       text(word.text, word.x, word.y);
     } else {
-      // Draw solid text
+      // Normal appearance when outside the box
       noStroke();
-      fill(0);
+      fill('#C5C5C5');
       text(word.text, word.x, word.y);
     }
   }
 
-  // Draw the interactive box
+  // Call the function to draw the rectangle with corner boxes
+  drawBox(mouseX, mouseY, boxSize, smallBoxSize);
+}
+
+// Function to draw the main rectangle and its 4 corner boxes
+function drawBox(x, y, mainBoxSize, cornerBoxSize) {
+  // Draw the main rectangle
   noFill();
-  stroke(64,64,64);
-  strokeWeight(2);
-  rect(mouseX - boxSize / 2, mouseY - boxSize / 2, boxSize, boxSize);
+  stroke('#C5C5C5');
+  strokeWeight(1);
+  rect(x - mainBoxSize / 2, y - mainBoxSize / 2, mainBoxSize, mainBoxSize);
+
+  // Draw the 4 small boxes at the corners
+  noFill();
+  stroke('#C5C5C5');
+  strokeWeight(1);
+
+  // Top-left corner
+  rect(x - mainBoxSize / 2 - cornerBoxSize / 2, y - mainBoxSize / 2 - cornerBoxSize / 2, cornerBoxSize, cornerBoxSize);
+
+  // Top-right corner
+  rect(x + mainBoxSize / 2 - cornerBoxSize / 2, y - mainBoxSize / 2 - cornerBoxSize / 2, cornerBoxSize, cornerBoxSize);
+
+  // Bottom-left corner
+  rect(x - mainBoxSize / 2 - cornerBoxSize / 2, y + mainBoxSize / 2 - cornerBoxSize / 2, cornerBoxSize, cornerBoxSize);
+
+  // Bottom-right corner
+  rect(x + mainBoxSize / 2 - cornerBoxSize / 2, y + mainBoxSize / 2 - cornerBoxSize / 2, cornerBoxSize, cornerBoxSize);
 }
