@@ -1,14 +1,18 @@
 let words = []; // Array to store word positions and strings
 let boxSize = 150; // Size of the interactive box
-let font;
+let font; // Variable to hold the custom font
 
 function preload() {
-  font = loadFont('https://blybtwk.github.io/markup/fonts/donknow%20yet-serif.otf'); // 使用绝对路径
+  // Load your custom font from the correct URL (ensure the path is correct)
+  font = loadFont('https://blybtwk.github.io/markup/fonts/donknow%20yet-serif.otf'); 
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight); // 创建画布
+  createCanvas(windowWidth, windowHeight);
+  
+  // Set the custom font
   textFont('donknow yet-serif'); 
+  
   textSize(32);
   textAlign(CENTER, CENTER);
 
@@ -21,7 +25,7 @@ function setup() {
 }
 
 function draw() {
-  
+  background(186,186,186);
 
   // Draw all words
   for (let word of words) {
@@ -47,7 +51,7 @@ function draw() {
 
   // Draw the interactive box
   noFill();
-  stroke(255, 0, 0);
+  stroke(64,64,64);
   strokeWeight(2);
   rect(mouseX - boxSize / 2, mouseY - boxSize / 2, boxSize, boxSize);
 }
