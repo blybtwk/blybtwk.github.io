@@ -4,24 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Box</title>
-  <link rel="stylesheet" href="webstyle.css"> 
+  <link rel="stylesheet" href="webstyle.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
-  <script src="text.js"></script>
+  <script src="text.js" defer></script>
 </head>
 <body>
 
+  <!-- Section 1 -->
   <div class="section" id="section-1">
+    <nav class="corner-nav">
+      <a href="#section-2" class="corner-link top-left">About</a>
+      <a href="#section-3" class="corner-link top-right">Usage</a>
+      <a href="#section-4" class="corner-link bottom-left">Contact</a>
+      <a href="#section-2" class="corner-link bottom-right">Install</a>
+    </nav>
     <canvas id="canvas"></canvas>
   </div>
 
+  <!-- Section 2 -->
   <div class="section black-section" id="section-2">
     <h1 style="color: white;">This is the black section</h1>
   </div>
 
+  <!-- Section 3 (Usage Section) -->
   <div class="section" id="section-3">
-    <div class="rotating-box"></div>
+    <div class="slider-container">
+      <label for="font-slider" id="font-label">12px</label>
+      <input type="range" id="font-slider" min="12" max="400" value="12">
+    </div>
+    <div class="text-preview">
+      <p id="preview-text">
+        asdjhkqjwhd kjwdkjdhwqkjd asdjhkqjwhd kjwdkjdhwqkjd kjwdkjdhwqkjd
+      </p>
+    </div>
   </div>
 
+  <!-- Section 4 -->
   <div class="section" id="section-4">
     <div class="text-container">
       <p>ahhaahhahhdsahdhassajhahhaahhahhdsa</p>
@@ -31,6 +49,27 @@
       <p>dsahdhassajh</p>
     </div>
   </div>
+
+  <!-- Scroll-to-Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()">Top</button>
+
+  <script>
+    // Smooth scroll-to-top functionality
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Font size slider functionality
+    const slider = document.getElementById("font-slider");
+    const label = document.getElementById("font-label");
+    const previewText = document.getElementById("preview-text");
+
+    slider.addEventListener("input", () => {
+      const fontSize = `${slider.value}px`;
+      label.textContent = fontSize;
+      previewText.style.fontSize = fontSize;
+    });
+  </script>
 
 </body>
 </html>
