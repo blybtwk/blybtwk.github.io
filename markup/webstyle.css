@@ -10,7 +10,7 @@ body {
   scroll-snap-type: y mandatory; /* For smooth scrolling */
 }
 
-section {
+.section {
   height: 100vh; /* Make each section take full viewport height */
   display: flex;
   justify-content: center;
@@ -18,14 +18,11 @@ section {
 }
 
 #section-1 {
-  background-color: #bada55; /* A color for your first section (light gray) */
+  background-color: #bada55; /* A color for your first section */
 }
 
 .black-section {
   background-color: black; /* The black page */
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 canvas {
@@ -39,4 +36,27 @@ canvas {
 p {
   font-size: 24px;
   color: #333;
+}
+
+#section-3 {
+  background-color: #4c4c3f; /* A neutral color for Section 3 */
+}
+
+.rotating-box {
+  width: 200px;
+  height: 200px;
+  background-color: #d2f055;
+  transform: rotate(45deg); /* Rotate the square to form a diamond */
+}
+
+#section-4 {
+  background-color: #f3f3f3; /* Light gray for Section 4 */
+  text-align: center;
+  padding: 2rem;
+}
+
+.text-container p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #111;
 }
