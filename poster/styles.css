@@ -1,0 +1,82 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+    color: black;
+}
+
+/* Poster Container */
+.poster {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* Circle Grid */
+.circle-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: -40px;
+    position: relative;
+    flex: 1;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+}
+
+.circle-blue {
+    background-color: #6da1a6;
+}
+
+.circle-brown {
+    background-color: #b08774;
+}
+
+/* Text Section */
+.text-section {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.text-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.text-section p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .poster {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .circle-grid {
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+    }
+
+    .text-section h1 {
+        font-size: 2rem;
+    }
+}
