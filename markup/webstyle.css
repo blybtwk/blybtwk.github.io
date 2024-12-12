@@ -50,30 +50,30 @@ canvas {
   position: absolute;
   font-family: 'donknow yet-serif';
   color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: normal;
   text-decoration: none;
   pointer-events: all; /* Allow clicks */
 }
 
 .corner-link.top-left {
-  top: 10px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
 }
 
 .corner-link.top-right {
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
 }
 
 .corner-link.bottom-left {
-  bottom: 10px;
-  left: 10px;
+  bottom: 20px;
+  left: 20px;
 }
 
 .corner-link.bottom-right {
-  bottom: 10px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
 }
 
 /* Section 3 (Slider) */
@@ -143,4 +143,29 @@ canvas {
   color: white;
   line-height: 1.5;
   text-align: left; /* Left-align the text */
+}
+
+/* Scroll-to-Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #6600FF; /* Purple background */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 50%; /* Make it circular */
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  cursor: pointer;
+  z-index: 100; /* Ensure it appears above all elements */
+}
+
+.scroll-to-top:hover {
+  background-color: #4B0082; /* Darker purple for hover effect */
 }
