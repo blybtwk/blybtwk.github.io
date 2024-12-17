@@ -6,6 +6,7 @@
   <title>Interactive Box</title>
   <link rel="stylesheet" href="webstyle.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  <script src="image.js" defer></script>
   <script src="text.js" defer></script>
   <script src="switchtype.js" defer></script>
 </head>
@@ -24,89 +25,82 @@
 
   <!-- Section 2 -->
   <div class="section black-section" id="section-2">
-    <h1 style="color: white;">Altinea is a modern serif typeface that redefines typographic proportions, breaking traditional conventions with elegance and precision.
-      At its core lies the reshaping of height dynamics, where the x-height is compressed to half its traditional size, while the ascenders and descenders are dramatically elongated to create striking vertical contrast and visual rhythm.</h1>
-  </div>
-
-
-<!-- Section 2.5 -->
-<div class="section" id="section-2-5">
-  <div class="split-container">
-    <!-- Left Yellow Section -->
-    <div class="yellow-section"></div>
-    <!-- Right Gray Section -->
-    <div class="gray-section">
-      <div class="font-showcase">
-        <p class="font-display">a</p>
-      </div>
+    <div class="text-serif">
+      Altinea is a modern serif typeface that redefines typographic proportions, breaking traditional conventions with elegance and precision.
+      At its core lies the reshaping of height dynamics, where the x-height is compressed to half its traditional size, while the ascenders and descenders are dramatically elongated to create striking vertical contrast and visual rhythm.
     </div>
   </div>
-  <!-- Horizontal Lines -->
-  <div class="height-lines">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-     <div class="line"></div>
-  </div>
-</div>
 
-  <!-- Section 3 (Usage Section) -->
+  <!-- Section 2.5 -->
+  <div class="section" id="section-2-5">
+    <div class="split-container">
+      <div class="yellow-section">
+        <div class="text-sans">
+          Altinea compresses the x-height, giving the typeface a light, airy quality. Meanwhile, the towering ascenders and deep descenders stretch the boundaries of form, creating a sense of structure and vertical grace.
+        </div>
+      </div>
+      <div class="gray-section">
+        <div class="font-showcase">
+          <p class="font-display">a</p>
+        </div>
+      </div>
+    </div>
+    <div class="height-lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
   <div class="section" id="section-3">
     <div class="slider-container">
       <label for="font-slider" id="font-label">100px</label>
       <input type="range" id="font-slider" min="100" max="800" value="100">
     </div>
     <div class="text-preview">
-      <p class="preview-line uppercase">
-        ABCDEFGHIJKLMNOPQRSTUVWXYZ
-      </p>
-      <p class="preview-line lowercase">
-        abcdefghijklmnopqrstuvwxyz
-      </p>
+      <p class="preview-line uppercase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+      <p class="preview-line lowercase">abcdefghijklmnopqrstuvwxyz</p>
     </div>
   </div>
 
-  <!-- Section 4 -->
-  <div class="section" id="section-4">
-    <div class="text-container">
-      <p>ahhaahhahhdsahdhassajhahhaahhahhdsa</p>
-      <p>hdhassajhahhaahhahhdsahdhassajhahhaa</p>
-      <p>hahhahdsahdhassajhahhaahhahhdsahdhas</p>
-      <p>sajhahhaahhahhdsahdhassajhahhaahhahh</p>
-      <p>dsahdhassajh</p>
-    </div>
+
+<!-- Section 4 -->
+<div class="section" id="section-4">
+  <div class="text-container">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida semper odio.</p>
+    <p>Aliquam erat volutpat. Duis euismod, justo eget fermentum tempor, risus risus malesuada elit.</p>
+    <p>Curabitur tincidunt quam eget mauris euismod, nec faucibus nulla interdum.</p>
+    <p>Donec congue urna ac urna viverra, eget laoreet felis volutpat. Suspendisse id dictum dui.</p>
+    <p>Sed sagittis felis vel dui pretium, ut efficitur neque dignissim.</p>
   </div>
+  <!-- 用于显示切换的图片 -->
+  <div id="image-canvas"></div>
+</div>
 
   <!-- Scroll-to-Top Button -->
   <button class="scroll-to-top" onclick="scrollToTop()">Top</button>
 
   <script>
-    // Smooth scroll-to-top functionality
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Font size slider functionality
     const slider = document.getElementById("font-slider");
     const label = document.getElementById("font-label");
     const previewLines = document.querySelectorAll(".preview-line");
 
-    // Initialize font size on page load
     document.addEventListener("DOMContentLoaded", () => {
       const initialFontSize = `${slider.value}px`;
       label.textContent = initialFontSize;
-      previewLines.forEach(line => {
-        line.style.fontSize = initialFontSize;
-      });
+      previewLines.forEach(line => line.style.fontSize = initialFontSize);
     });
 
-    // Update font size dynamically for both lines
     slider.addEventListener("input", () => {
       const fontSize = `${slider.value}px`;
       label.textContent = fontSize;
-      previewLines.forEach(line => {
-        line.style.fontSize = fontSize;
-      });
+      previewLines.forEach(line => line.style.fontSize = fontSize);
     });
   </script>
 </body>

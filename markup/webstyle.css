@@ -24,19 +24,41 @@ body {
   position: relative;
 }
 
+/* Section 2 */
 .black-section {
-  background-color: #D9D9D9;
-  position: relative; /* 确保灰色块可以相对定位 */
+  background-color: #2B2B2B;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 100px;
+  box-sizing: border-box;
+}
+
+.text-serif {
+  font-family: 'donknow yet-serif', serif;
+  font-size: 50px;
+  color: #999999;
+  text-align: left;
+  margin: 0;
+}
+
+.text-sans {
+  font-family: Arial, sans-serif !important;
+  font-size: 20px;
+  color: #999999;
+  text-align: left;
+  margin: 0;
 }
 
 .black-section::after {
   content: "";
   position: absolute;
-  top: 0; /* 将灰色块放在底部 */
+  top: 0;
   left: 0;
   width: 100%;
-  height: 60px; /* 高度固定为30px */
-  background-color: #999999; /* 灰色块颜色 */
+  height: 60px;
+  background-color: #999999;
 }
 
 canvas {
@@ -44,7 +66,7 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0; /* Ensure canvas stays behind other elements */
+  z-index: 0;
 }
 
 .corner-nav {
@@ -53,7 +75,7 @@ canvas {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2; /* Ensure corner text appears above canvas */
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -64,7 +86,7 @@ canvas {
   font-size: 2rem;
   font-weight: normal;
   text-decoration: none;
-  pointer-events: all; /* Allow clicks */
+  pointer-events: all;
 }
 
 .corner-link.top-left {
@@ -87,12 +109,12 @@ canvas {
   right: 20px;
 }
 
-/* Section 3: Slider and Font Preview */
+/* Section 3 */
 #section-3 {
   background-color: #4c4c3f;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Keep slider at the top */
+  justify-content: flex-start;
   align-items: center;
   padding: 20px;
   position: relative;
@@ -102,10 +124,10 @@ canvas {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 40px 0 20px; /* Add 40px top margin */
-  width: calc(100% - 40px); /* Full width with margin */
+  margin: 40px 0 20px;
+  width: calc(100% - 40px);
   max-width: 100%;
-  position: relative; /* Keep it in flow */
+  position: relative;
   justify-content: center;
 }
 
@@ -113,7 +135,7 @@ canvas {
   width: 100%;
   max-width: 100%;
   -webkit-appearance: none;
-  height: 1px; /* Slider line thickness */
+  height: 1px;
   background: #fff;
   border-radius: 0.5px;
   cursor: pointer;
@@ -128,30 +150,21 @@ canvas {
   cursor: pointer;
 }
 
-#font-slider::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
-  background: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
 #font-label {
   font-family: sans-serif;
   font-size: 16px;
   color: white;
 }
 
-/* Text Preview */
 .text-preview {
   width: calc(100% - 40px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start; /* Left align the text */
-  margin: 40px 20px; /* Add larger top margin */
-  overflow: hidden; /* Ensure text is clipped */
-  font-size: 100px; /* Ensure initial size is 100px */
+  align-items: flex-start;
+  margin: 40px 20px;
+  overflow: hidden;
+  font-size: 100px;
 }
 
 .preview-line {
@@ -159,7 +172,7 @@ canvas {
   margin: 0;
   line-height: 1.2;
   text-align: left;
-  white-space: nowrap; /* Prevent wrapping */
+  white-space: nowrap;
 }
 
 .uppercase {
@@ -192,18 +205,16 @@ canvas {
   background-color: #4B0082;
 }
 
-
-/* Section 2.5 Layout */
+/* Section 2.5 */
 #section-2-5 {
   display: flex;
   width: 100%;
-  height: 100vh; /* 整个页面高度 */
+  height: 100vh;
   margin: 0;
   padding: 0;
   position: relative;
 }
 
-/* Split Container for Yellow and Gray */
 .split-container {
   display: flex;
   width: 100%;
@@ -211,39 +222,49 @@ canvas {
 }
 
 .yellow-section {
-  background-color: #A8A446; /* 黄色背景 */
-  flex: 2; /* 三分之二 */
+  background-color: #A8A446;
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-sans {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  color: #D7D7D7;
+  line-height: 1.5;
+  max-width: 80%;
+  text-align: center;
 }
 
 .gray-section {
-  background-color: #9C9C9C; /* 灰色背景 */
-  flex: 1; /* 三分之一 */
+  background-color: #9C9C9C;
+  flex: 1;
   position: relative;
   overflow: hidden;
 }
 
-/* Fixed Font Display */
 .font-display {
   font-family: 'donknow yet-serif', serif;
   color: white;
-  font-size: 850px; /* 固定字体大小 */
-  line-height: 0.7; /* 缩小行高 */
+  font-size: 850px;
+  line-height: 0.7;
   margin: 0;
-  position: absolute; /* 绝对定位 */
-  top: 148px; /* 垂直固定位置 */
-  left: 150px; /* 水平固定位置 */
+  position: absolute;
+  top: 148px;
+  left: 150px;
   text-align: center;
-  white-space: nowrap; /* 防止文字换行 */
+  white-space: nowrap;
 }
 
-/* Horizontal Height Lines */
 .height-lines {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* 不干扰交互 */
+  pointer-events: none;
 }
 
 .height-lines .line {
@@ -254,16 +275,43 @@ canvas {
 }
 
 .height-lines .line:nth-child(1) {
-  top: 20px; /* 第一条线 */
+  top: 20px;
 }
 
 .height-lines .line:nth-child(2) {
-  top: 360px; /* 第二条线 */
+  top: 360px;
 }
 
 .height-lines .line:nth-child(3) {
-  top: 530px; /* 第三条线 */
+  top: 530px;
 }
 
 .height-lines .line:nth-child(4) {
   top: 870px;
+}
+
+#section-4 {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#image-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* 保证 canvas 在背景层 */
+}
+
+.text-container {
+  position: relative;
+  z-index: 2; /* 保证文字显示在 canvas 上方 */
+  color: #000; /* 文字颜色为黑色 */
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.6;
+}
