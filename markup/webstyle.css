@@ -3,7 +3,7 @@
   src: url('./fonts/donknow%20yet-serif.otf') format('opentype');
 }
 
-body {
+body { 
   font-family: 'donknow yet-serif'; /* Use custom font globally */
   margin: 0;
   overflow: auto;
@@ -25,7 +25,18 @@ body {
 }
 
 .black-section {
-  background-color: black;
+  background-color: #D9D9D9;
+  position: relative; /* 确保灰色块可以相对定位 */
+}
+
+.black-section::after {
+  content: "";
+  position: absolute;
+  top: 0; /* 将灰色块放在底部 */
+  left: 0;
+  width: 100%;
+  height: 60px; /* 高度固定为30px */
+  background-color: #999999; /* 灰色块颜色 */
 }
 
 canvas {
@@ -76,73 +87,87 @@ canvas {
   right: 20px;
 }
 
-/* Section 3 (Slider) */
+/* Section 3: Slider and Font Preview */
 #section-3 {
   background-color: #4c4c3f;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Keep slider at the top */
   align-items: center;
   padding: 20px;
+  position: relative;
 }
 
 .slider-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
-  width: calc(100% - 60px); /* Full width minus 30px margins */
-  margin: 0 30px; /* Add 30px margin to the left and right */
+  margin: 40px 0 20px; /* Add 40px top margin */
+  width: calc(100% - 40px); /* Full width with margin */
+  max-width: 100%;
+  position: relative; /* Keep it in flow */
+  justify-content: center;
 }
 
 #font-slider {
-  -webkit-appearance: none;
-  appearance: none;
   width: 100%;
-  height: 2px; /* Thin slider line */
+  max-width: 100%;
+  -webkit-appearance: none;
+  height: 1px; /* Slider line thickness */
   background: #fff;
-  border-radius: 1px;
+  border-radius: 0.5px;
   cursor: pointer;
 }
 
 #font-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   background: #fff;
-  border-radius: 50%; /* Circular handle */
+  border-radius: 50%;
   cursor: pointer;
 }
 
 #font-slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   background: #fff;
-  border-radius: 50%; /* Circular handle */
+  border-radius: 50%;
   cursor: pointer;
 }
 
 #font-label {
-  font-family: sans-serif; /* Use sans-serif for font size label */
+  font-family: sans-serif;
   font-size: 16px;
   color: white;
 }
 
+/* Text Preview */
 .text-preview {
-  width: calc(100% - 60px); /* Full width minus 30px margins */
-  height: 60%;
-  overflow: hidden; /* Prevent overflowing text */
+  width: calc(100% - 40px);
   display: flex;
-  justify-content: flex-start; /* Left-align text */
-  align-items: center;
-  margin: 0 30px; /* Match slider's margin */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start; /* Left align the text */
+  margin: 40px 20px; /* Add larger top margin */
+  overflow: hidden; /* Ensure text is clipped */
+  font-size: 100px; /* Ensure initial size is 100px */
 }
 
-#preview-text {
-  font-size: 12px;
+.preview-line {
   color: white;
-  line-height: 1.5;
-  text-align: left; /* Left-align the text */
+  margin: 0;
+  line-height: 1.2;
+  text-align: left;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
 }
 
 /* Scroll-to-Top Button */
@@ -152,20 +177,93 @@ canvas {
   right: 20px;
   width: 60px;
   height: 60px;
-  background-color: #6600FF; /* Purple background */
-  color: #fff; /* White text */
-  border: none; /* No border */
-  border-radius: 50%; /* Make it circular */
+  background-color: #6600FF;
+  color: #fff;
+  border-radius: 50%;
   font-size: 1rem;
-  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  z-index: 100; /* Ensure it appears above all elements */
 }
 
 .scroll-to-top:hover {
-  background-color: #4B0082; /* Darker purple for hover effect */
+  background-color: #4B0082;
 }
+
+
+/* Section 2.5 Layout */
+#section-2-5 {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* 整个页面高度 */
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Split Container for Yellow and Gray */
+.split-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.yellow-section {
+  background-color: #A8A446; /* 黄色背景 */
+  flex: 2; /* 三分之二 */
+}
+
+.gray-section {
+  background-color: #9C9C9C; /* 灰色背景 */
+  flex: 1; /* 三分之一 */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fixed Font Display */
+.font-display {
+  font-family: 'donknow yet-serif', serif;
+  color: white;
+  font-size: 850px; /* 固定字体大小 */
+  line-height: 0.7; /* 缩小行高 */
+  margin: 0;
+  position: absolute; /* 绝对定位 */
+  top: 148px; /* 垂直固定位置 */
+  left: 150px; /* 水平固定位置 */
+  text-align: center;
+  white-space: nowrap; /* 防止文字换行 */
+}
+
+/* Horizontal Height Lines */
+.height-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* 不干扰交互 */
+}
+
+.height-lines .line {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: white;
+}
+
+.height-lines .line:nth-child(1) {
+  top: 20px; /* 第一条线 */
+}
+
+.height-lines .line:nth-child(2) {
+  top: 360px; /* 第二条线 */
+}
+
+.height-lines .line:nth-child(3) {
+  top: 530px; /* 第三条线 */
+}
+
+.height-lines .line:nth-child(4) {
+  top: 870px;

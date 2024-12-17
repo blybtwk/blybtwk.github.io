@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="webstyle.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
   <script src="text.js" defer></script>
+  <script src="switchtype.js" defer></script>
 </head>
 <body>
 
@@ -23,18 +24,44 @@
 
   <!-- Section 2 -->
   <div class="section black-section" id="section-2">
-    <h1 style="color: white;">This is the black section</h1>
+    <h1 style="color: white;">Altinea is a modern serif typeface that redefines typographic proportions, breaking traditional conventions with elegance and precision.
+      At its core lies the reshaping of height dynamics, where the x-height is compressed to half its traditional size, while the ascenders and descenders are dramatically elongated to create striking vertical contrast and visual rhythm.</h1>
   </div>
+
+
+<!-- Section 2.5 -->
+<div class="section" id="section-2-5">
+  <div class="split-container">
+    <!-- Left Yellow Section -->
+    <div class="yellow-section"></div>
+    <!-- Right Gray Section -->
+    <div class="gray-section">
+      <div class="font-showcase">
+        <p class="font-display">a</p>
+      </div>
+    </div>
+  </div>
+  <!-- Horizontal Lines -->
+  <div class="height-lines">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+     <div class="line"></div>
+  </div>
+</div>
 
   <!-- Section 3 (Usage Section) -->
   <div class="section" id="section-3">
     <div class="slider-container">
-      <label for="font-slider" id="font-label">12px</label>
-      <input type="range" id="font-slider" min="12" max="400" value="12">
+      <label for="font-slider" id="font-label">100px</label>
+      <input type="range" id="font-slider" min="100" max="800" value="100">
     </div>
     <div class="text-preview">
-      <p id="preview-text">
-        asdjhkqjwhd kjwdkjdhwqkjd asdjhkqjwhd kjwdkjdhwqkjd kjwdkjdhwqkjd
+      <p class="preview-line uppercase">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+      </p>
+      <p class="preview-line lowercase">
+        abcdefghijklmnopqrstuvwxyz
       </p>
     </div>
   </div>
@@ -62,14 +89,25 @@
     // Font size slider functionality
     const slider = document.getElementById("font-slider");
     const label = document.getElementById("font-label");
-    const previewText = document.getElementById("preview-text");
+    const previewLines = document.querySelectorAll(".preview-line");
 
+    // Initialize font size on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      const initialFontSize = `${slider.value}px`;
+      label.textContent = initialFontSize;
+      previewLines.forEach(line => {
+        line.style.fontSize = initialFontSize;
+      });
+    });
+
+    // Update font size dynamically for both lines
     slider.addEventListener("input", () => {
       const fontSize = `${slider.value}px`;
       label.textContent = fontSize;
-      previewText.style.fontSize = fontSize;
+      previewLines.forEach(line => {
+        line.style.fontSize = fontSize;
+      });
     });
   </script>
-
 </body>
 </html>
